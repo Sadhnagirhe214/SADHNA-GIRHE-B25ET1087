@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i,sum=0;
+    cout<<"\ndisplay the even numbers from 1 to 50="<<i;
+    
+    for(i=2;i<=50;i=i+2)
+    {
+    cout<<"\n"<<i;
+    
+        sum=sum+i;
+    }
+    cout<<"sum of an even numbers between 1 to 50="<<sum;
+    
+
+    return 0;
+}

@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class Temperature
+{
+public:
+       void temperature(float celsius)
+    {
+        float fahrenheit = (celsius * 9 / 5) + 32;
+        cout << "Celsius to Fahrenheit = " << fahrenheit << " F" << endl;
+    }
+
+       void temperature(int fahrenheit)
+    {
+        float celsius = (fahrenheit - 32) * 5.0 / 9;
+        cout << "Fahrenheit to Celsius = " << celsius << " C" << endl;
+    }
+};
+
+int main()
+{
+    Temperature obj;
+
+    obj.temperature(37.0f);      obj.temperature(98);     
+    return 0;
+}
+

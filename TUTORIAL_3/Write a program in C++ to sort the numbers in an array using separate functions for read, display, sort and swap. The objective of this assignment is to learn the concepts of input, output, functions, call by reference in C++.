@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+
+
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+void readArray(int arr[], int size) {
+    cout << "Enter " << size << " numbers: ";
+    for (int i = 0; i < 4; i++) {
+        cin >> arr[i];
+    }
+}
+
+void displayArray(int arr[], int size) {
+    for (int i = 0; i < 4; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void sortArray(int arr[], int size) {
+    for (int i = 0; i < 4 - 1; i++) {
+        for (int j = 0; j < 4 - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+}
+
+int main() {
+    int size;
+    cout << "Enter array size: ";
+    cin >> size;
+
+    int arr[4]; 
+
+    readArray(arr, 4);
+    
+    
+    sortArray(arr, 4);
+
+    cout << "Sorted:   ";
+    displayArray(arr, 4);
+
+    return 0;
+}

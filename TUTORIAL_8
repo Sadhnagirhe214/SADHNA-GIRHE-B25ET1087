@@ -1,0 +1,99 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class 1: Stores basic employee information
+class Employee {
+protected:
+    int employeeID;
+    string employeeName;
+    string department;
+
+public:
+    // Function to accept employee details
+    void getEmployeeInfo() {
+        cout << "Enter Employee ID: ";
+        cin >> employeeID;
+
+        cin.ignore(); // Clear the newline from input buffer
+
+        cout << "Enter Employee Name: ";
+        getline(cin, employeeName);
+
+        cout << "Enter Department: ";
+        getline(cin, department);
+    }
+
+    // Function to display employee details
+    void displayEmployeeInfo() {
+        cout << "\n--- Employee Information ---" << endl;
+        cout << "Employee ID   : " << employeeID << endl;
+        cout << "Employee Name : " << employeeName << endl;
+        cout << "Department    : " << department << endl;
+    }
+};
+
+// Base class 2: Stores training information
+class Training {
+protected:
+    string training1;
+    string training2;
+    bool certified;
+
+public:
+    // Function to accept training details
+    void getTrainingInfo() {
+        cin.ignore(); // Clear input buffer
+
+        cout << "\nEnter first completed training program: ";
+        getline(cin, training1);
+
+        cout << "Enter second completed training program: ";
+        getline(cin, training2);
+
+        char choice;
+        cout << "Has the employee received certification? (Y/N): ";
+        cin >> choice;
+
+        // Set certification status
+        certified = (choice == 'Y' || choice == 'y');
+    }
+
+    // Function to display training details
+    void displayTrainingInfo() {
+        cout << "\n--- Training Information ---" << endl;
+        cout << "Completed Training Programs:" << endl;
+        cout << "1. " << training1 << endl;
+        cout << "2. " << training2 << endl;
+
+        cout << "Certification Status: ";
+        if (certified)
+            cout << "Certified" << endl;
+        else
+            cout << "Not Certified" << endl;
+    }
+};
+
+// Derived class inheriting from both Employee and Training
+class EmployeeDetails : public Employee, public Training {
+public:
+    // Function to display all employee and training information
+    void displayDetails() {
+        displayEmployeeInfo();
+        displayTrainingInfo();
+    }
+};
+
+int main() {
+    // Create an object of the derived class
+    EmployeeDetails emp;
+
+    // Input employee and training information
+    emp.getEmployeeInfo();
+    emp.getTrainingInfo();
+
+    // Display all information
+    emp.displayDetails();
+
+    return 0;
+}

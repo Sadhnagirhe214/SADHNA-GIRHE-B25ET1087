@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Shape {
+public:
+    // Virtual function to calculate perimeter
+    virtual void perimeter() {
+        cout << "Perimeter of Shape" << endl;
+    }
+};
+
+// Derived class Triangle
+class Triangle : public Shape {
+private:
+    float a, b, c;
+
+public:
+    // Constructor
+    Triangle(float x, float y, float z) {
+        a = x;
+        b = y;
+        c = z;
+    }
+
+    // Override the virtual function
+    void perimeter() override {
+        cout << "Perimeter of Triangle = "
+             << a + b + c << endl;
+    }
+};
+
+// Derived class Square
+class Square : public Shape {
+private:
+    float side;
+
+public:
+    // Constructor
+    Square(float s) {
+        side = s;
+    }
+
+    // Override the virtual function
+    void perimeter() override {
+        cout << "Perimeter of Square = "
+             << 4 * side << endl;
+    }
+};
+
+int main() {
+    // Create objects of derived classes
+    Triangle t(3, 4, 5);
+    Square s(5);
+
+    // Base class pointer
+    Shape* ptr;
+
+    // Pointing to Triangle object
+    ptr = &t;
+    ptr->perimeter();   // Calls Triangle's perimeter()
+
+    // Pointing to Square object
+    ptr = &s;
+    ptr->perimeter();   // Calls Square's perimeter()
+
+    return 0;
+}

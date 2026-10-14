@@ -1,0 +1,41 @@
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    long long factorial = 1;
+
+    cout << "Enter a positive number: ";
+    cin >> n;
+
+    try
+    {
+        // Check whether the number is zero or negative
+        if (n <= 0)
+        {
+            // Throw an exception for an invalid number
+            throw n;
+        }
+
+        // Calculate the factorial of the number
+        for (int i = 1; i <= n; i++)
+        {
+            factorial = factorial * i;
+        }
+
+        // Display the factorial result
+        cout << "Factorial of " << n
+             << " = " << factorial << endl;
+    }
+    catch (int x)
+    {
+        // Handle the exception
+        cout << "Exception caught!" << endl;
+        cout << "Error: Factorial is not allowed "
+             << "for zero or negative numbers." << endl;
+    }
+
+    return 0;
+}

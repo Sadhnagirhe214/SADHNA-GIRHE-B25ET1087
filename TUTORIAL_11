@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+// Class template
+template <class T>
+class Demo
+{
+    T a, b;  // Variables of generic data type
+
+public:
+    // Constructor to initialize values
+    Demo(T x, T y)
+    {
+        a = x;
+        b = y;
+    }
+
+    // Function to display values
+    void display()
+    {
+        cout << "First value: " << a << endl;
+        cout << "Second value: " << b << endl;
+    }
+};
+
+// Function template
+template <class T>
+T add(T x, T y)
+{
+    return x + y;  // Returns the sum of two values
+}
+
+int main()
+{
+    // Creating an object of class template with integer values
+    Demo<int> d1(10, 20);
+
+    cout << "Class Template:" << endl;
+    d1.display();
+
+    // Calling function template with integer values
+    cout << "\nFunction Template:" << endl;
+    cout << "Sum of integers: " << add(10, 20) << endl;
+
+    // Calling function template with decimal values
+    cout << "Sum of decimals: " << add(2.5, 3.5) << endl;
+
+    return 0;  // Program ends successfully
+}

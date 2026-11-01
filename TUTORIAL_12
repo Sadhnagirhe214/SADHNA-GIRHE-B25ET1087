@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+// First namespace
+namespace First
+{
+    // Function inside First namespace
+    void display()
+    {
+        cout << "This is First Namespace." << endl;
+    }
+}
+
+// Second namespace
+namespace Second
+{
+    // Function inside Second namespace
+    void display()
+    {
+        cout << "This is Second Namespace." << endl;
+    }
+}
+
+int main()
+{
+    // Calling functions using namespace name
+    First::display();
+
+    Second::display();
+
+    return 0;
+}

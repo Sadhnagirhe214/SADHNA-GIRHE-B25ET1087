@@ -1,0 +1,35 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    char ch;
+
+    // Open source file for reading
+    ifstream fin("source.txt");
+
+    // Open destination file for writing
+    ofstream fout("destination.txt");
+
+    // Check whether source file is opened
+    if (!fin)
+    {
+        cout << "Source file cannot be opened!";
+        return 1;
+    }
+
+    // Read characters from source and write to destination
+    while (fin.get(ch))
+    {
+        fout.put(ch);
+    }
+
+    // Close both files
+    fin.close();
+    fout.close();
+
+    cout << "File copied successfully!";
+
+    return 0;
+}
